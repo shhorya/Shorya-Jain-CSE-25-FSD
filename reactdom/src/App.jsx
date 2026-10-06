@@ -1,10 +1,11 @@
 import './App.css'
-import Clg from "./components/College";
+import ImageManipulation from "./components/ImageManipulation";
+
 function App() {
   return (
     <>
       <div id="main">
-        <Clg />
+        <ImageManipulation />
       </div>
     </>
   );
