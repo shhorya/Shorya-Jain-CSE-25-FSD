@@ -1,27 +1,46 @@
 import React, { useState } from 'react'
+import cat from '../images/cat.png'
 
 function ImageManipulation() {
-    const [height, setHeight] = useState(200)
-    const [width, setWidth] = useState(200)
+    const [catHeight, setCatHeight] = useState(200)
+    const [catWidth, setCatWidth] = useState(200)
+    const [red, setRed] = useState(0)
+    const [green, setGreen] = useState(0)
+    const [blue, setBlue] = useState(0)
+    const [catAngle, setCatAngle] = useState(30)
 
-    const increaseHeight = () => {
-        setHeight(height + 50)
+    function increaseHeight() {
+        setCatHeight(catHeight + 10)
     }
-    const increaseWidth = () => {
-        setWidth(width + 50)
+
+    function increaseWidth() {
+        setCatWidth(catWidth + 10)
     }
+
+    function changeBGColor() {
+        setRed(Math.floor(Math.random() * 256))
+        setGreen(Math.floor(Math.random() * 256))
+        setBlue(Math.floor(Math.random() * 256))
+    }
+
+    function imageRotate() {
+        setCatAngle(catAngle + 30)
+    }
+
     return (
         <div>
-            <div>ImageManipulation</div>
-            <div style={{ width: '400px', height: '400px', border: '4px solid red' }}>
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD8UPwiwUntB9qX2LzNUtIG5mBAIw2fMUfe_510nAzAWSUZ-VYhUIy4O4p&s=10"
-                    style={{ height: `${height}px`, width: `${width}px` }}
-                />
+            <h2>Welcome to React App Development</h2>
+            <h3>ImageManipulation</h3>
+
+            <div style={{ height: '400px', width: '400px', border: '4px solid red', backgroundColor: `rgb(${red}, ${green}, ${blue})` }}>
+                <img src={cat} height={catHeight} width={catWidth} style={{ transform: `rotate(${catAngle}deg)` }} alt="cat" />
             </div>
+
             <div>
-                <button onClick={increaseHeight}>increase height</button>
-                <button onClick={increaseWidth}>increase width</button>
+                <button onClick={increaseHeight}>Increase Height</button>
+                <button onClick={increaseWidth}>Increase Width</button>
+                <button onClick={changeBGColor}>Change BG Color</button>
+                <button onClick={imageRotate}>Image Rotate</button>
             </div>
         </div>
     )
