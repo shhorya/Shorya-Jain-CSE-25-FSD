@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 
 function FetchProducts() {
@@ -27,14 +28,18 @@ function FetchProducts() {
 
     return (
         <div>
-            <h2>Products</h2>
+            FetchProducts
+            npm i react-{/* <h2>{JSON.stringify(data)}</h2> */}
 
-            {products.map((product) => (
-                <div key={product.id}>
-                    <h3>{product.title}</h3>
-                    <p>Price: ${product.price}</p>
-                </div>
-            ))}
+            {
+                products.map(ele => (
+                    <div key={ele.id}>
+                        <img src={ele.images} height="144" width="144" />
+                        <h2>{ele.id}</h2>
+                        <button>Add to Cart</button>
+                    </div>
+                ))
+            }
         </div>
     )
 }
